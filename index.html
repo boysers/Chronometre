@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Chrono</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Chrono</h1>
+      <form>
+        <p>
+          <input type="number" name="hours" id="hours" value="00" disabled />
+          <label for="hours">Heures</label>
+        </p>
+        <p>
+          <input
+            type="number"
+            name="minutes"
+            id="minutes"
+            value="00"
+            disabled
+          />
+          <label for="minutes">Minutes</label>
+        </p>
+        <p>
+          <input
+            type="number"
+            name="seconds"
+            id="seconds"
+            value="00"
+            disabled
+          />
+          <label for="seconds">Secondes</label>
+        </p>
+        <p>
+          <input type="button" id="btn-stop" value="stop" />
+          <input type="button" id="btn-pause" value="pause" />
+          <input type="button" id="btn-start" value="start" />
+        </p>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

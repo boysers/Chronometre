@@ -1,0 +1,13 @@
+html {
+  font-family: "Arial Black", sans-serif;
+}
+
+body {
+  color: #eee3ee;
+  background-color: #251f25;
+}
+
+input[type="number"]:disabled {
+  color: #251f25;
+  background-color: #eee3ee;
+}
