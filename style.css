@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Arial Black", sans-serif;
 }
@@ -7,7 +13,48 @@ body {
   background-color: #251f25;
 }
 
+#container {
+  flex-direction: column;
+}
+
+#container,
+form {
+  margin: 1.5em 0;
+  display: flex;
+  align-items: center;
+}
+
+form > p {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.2em;
+  text-align: center;
+}
+
+form > span {
+  font-size: 2rem;
+  position: relative;
+  top: 0.42em;
+}
+
+form > p > label {
+  padding-bottom: 0.5em;
+}
+
 input[type="number"]:disabled {
-  color: #251f25;
-  background-color: #eee3ee;
+  font-size: 2rem;
+  width: 80px;
+  height: 80px;
+  color: #f8b8f8;
+  background-color: #704f70;
+  text-align: center;
+  padding-left: 0.5em;
+}
+
+input[type="button"] {
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 0.2em;
 }

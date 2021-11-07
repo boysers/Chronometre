@@ -35,7 +35,7 @@ function inputAdd() {
 function chrono() {
   t = setInterval(inputAdd, 100);
 }
-chrono();
+// chrono();
 
 function inputReset() {
   hours = 0;
@@ -47,7 +47,6 @@ function inputReset() {
   seconds = 0;
   inputSeconds.value = "00";
 }
-inputReset();
 
 // Events
 start.addEventListener("click", () => {

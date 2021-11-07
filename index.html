@@ -12,35 +12,25 @@
       <h1>Chrono</h1>
       <form>
         <p>
-          <input type="number" name="hours" id="hours" value="00" disabled />
           <label for="hours">Heures</label>
+          <input type="number" name="hours" id="hours" disabled />
         </p>
+        <span>:</span>
         <p>
-          <input
-            type="number"
-            name="minutes"
-            id="minutes"
-            value="00"
-            disabled
-          />
           <label for="minutes">Minutes</label>
+          <input type="number" name="minutes" id="minutes" disabled />
         </p>
+        <span>:</span>
         <p>
-          <input
-            type="number"
-            name="seconds"
-            id="seconds"
-            value="00"
-            disabled
-          />
           <label for="seconds">Secondes</label>
-        </p>
-        <p>
-          <input type="button" id="btn-stop" value="stop" />
-          <input type="button" id="btn-pause" value="pause" />
-          <input type="button" id="btn-start" value="start" />
+          <input type="number" name="seconds" id="seconds" disabled />
         </p>
       </form>
+      <div id="buttons">
+        <input type="button" id="btn-stop" value="⏹️" />
+        <input type="button" id="btn-pause" value="⏸️" />
+        <input type="button" id="btn-start" value="▶️" />
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
