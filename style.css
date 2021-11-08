@@ -41,14 +41,13 @@ form > p > label {
   padding-bottom: 0.5em;
 }
 
-input[type="number"]:disabled {
+input[type="text"]:disabled {
   font-size: 2rem;
   width: 80px;
   height: 80px;
   color: #f8b8f8;
   background-color: #704f70;
   text-align: center;
-  padding-left: 0.5em;
 }
 
 input[type="button"] {

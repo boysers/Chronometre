@@ -13,7 +13,9 @@ let centiSeconds = 0;
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
-let t;
+let timeChrono;
+let chronoStart = false;
+let chronoPause = true;
 
 // Fonctions
 function convCS() {
@@ -33,33 +35,40 @@ function inputAdd() {
 }
 
 function chrono() {
-  t = setInterval(inputAdd, 100);
+  timeChrono = setInterval(inputAdd, 100);
 }
 // chrono();
 
 function inputReset() {
   hours = 0;
-  inputHours.value = "00";
+  inputHours.value = "";
 
   minutes = 0;
-  inputMinutes.value = "00";
+  inputMinutes.value = "";
 
   seconds = 0;
-  inputSeconds.value = "00";
+  inputSeconds.value = "";
 }
 
 // Events
 start.addEventListener("click", () => {
+  if (!chronoPause && chronoStart) return;
+  chronoStart = true;
+  chronoPause = false;
   chrono();
 });
 
 pause.addEventListener("click", () => {
-  clearTimeout(t);
+  chronoPause = true;
+  chronoStart = false;
+  clearTimeout(timeChrono);
 });
 
 stop.addEventListener("click", () => {
-  clearInterval(t);
+  clearInterval(timeChrono);
   inputReset();
+  chronoPause = true;
+  chronoStart = false;
 
   centiSeconds = 0;
 });
