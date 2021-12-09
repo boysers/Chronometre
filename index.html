@@ -7,31 +7,60 @@
     <link rel="stylesheet" href="style.css" />
     <title>Chrono</title>
   </head>
+
   <body>
     <div id="container">
       <h1>Chrono</h1>
-      <form>
-        <p>
-          <label for="hours">Heures</label>
-          <input type="text" name="hours" id="hours" disabled />
-        </p>
-        <span>:</span>
-        <p>
-          <label for="minutes">Minutes</label>
-          <input type="text" name="minutes" id="minutes" disabled />
-        </p>
-        <span>:</span>
-        <p>
-          <label for="seconds">Secondes</label>
-          <input type="text" name="seconds" id="seconds" disabled />
-        </p>
-      </form>
+
+      <div id="timer">
+        <form>
+          <p>
+            <label for="hours">Heures</label>
+            <input type="text" name="hours" id="hours" disabled />
+          </p>
+
+          <span>:</span>
+
+          <p>
+            <label for="minutes">Minutes</label>
+            <input type="text" name="minutes" id="minutes" disabled />
+          </p>
+
+          <span>:</span>
+
+          <p>
+            <label for="seconds">Secondes</label>
+            <input type="text" name="seconds" id="seconds" disabled />
+          </p>
+        </form>
+
+        <form>
+          <p>
+            <label for="travail">Mode Travail</label>
+            <input type="text" name="travail" id="travail" disabled />
+          </p>
+        </form>
+      </div>
+
       <div id="buttons">
-        <input type="button" id="btn-stop" value="⏹️" />
-        <input type="button" id="btn-pause" value="⏸️" />
-        <input type="button" id="btn-start" value="▶️" />
+        <form>
+          <p>
+            <input type="button" id="btn-params" value="⚙️" />
+            <input type="button" id="btn-stop" value="⏹️" />
+            <input type="button" id="btn-pause" value="⏸️" />
+            <input type="button" id="btn-start" value="▶️" />
+          </p>
+        </form>
+
+        <form id="params">
+          <p>
+            <label for="mode-travail">Mode Travail</label>
+            <input type="checkbox" name="mode-travail" id="mode-travail" />
+          </p>
+        </form>
       </div>
     </div>
-    <script src="app.js"></script>
+
+    <script type="module" src="app.js"></script>
   </body>
 </html>
