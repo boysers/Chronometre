@@ -13,54 +13,72 @@
       <h1>Chrono</h1>
 
       <div id="timer">
-        <form>
-          <p>
-            <label for="hours">Heures</label>
-            <input type="text" name="hours" id="hours" disabled />
-          </p>
+        <div>
+          <form>
+            <p>
+              <label for="heure">Heure</label>
+              <input type="text" name="heure" id="heure" disabled />
+            </p>
 
-          <span>:</span>
+            <span>:</span>
 
-          <p>
-            <label for="minutes">Minutes</label>
-            <input type="text" name="minutes" id="minutes" disabled />
-          </p>
+            <p>
+              <label for="minute">Minute</label>
+              <input type="text" name="minute" id="minute" disabled />
+            </p>
 
-          <span>:</span>
+            <span>:</span>
 
-          <p>
-            <label for="seconds">Secondes</label>
-            <input type="text" name="seconds" id="seconds" disabled />
-          </p>
-        </form>
+            <p>
+              <label for="seconde">Seconde</label>
+              <input type="text" name="seconde" id="seconde" disabled />
+            </p>
+          </form>
+        </div>
 
-        <form>
-          <p>
-            <label for="travail">Mode Travail</label>
-            <input type="text" name="travail" id="travail" disabled />
-          </p>
-        </form>
+        <div>
+          <form style="display: none">
+            <p>
+              <label for="travail">Mode Travail</label>
+              <input type="text" name="travail" id="travail" disabled />
+            </p>
+          </form>
+        </div>
       </div>
 
       <div id="buttons">
-        <form>
-          <p>
-            <input type="button" id="btn-params" value="⚙️" />
-            <input type="button" id="btn-stop" value="⏹️" />
-            <input type="button" id="btn-pause" value="⏸️" />
-            <input type="button" id="btn-start" value="▶️" />
-          </p>
-        </form>
+        <div>
+          <form>
+            <p>
+              <input type="button" id="parametre" value="⚙️" />
+              <input type="button" id="stop" value="⏹️" />
+              <input type="button" id="pause" value="⏸️" />
+              <input type="button" id="start" value="▶️" />
+            </p>
+          </form>
+        </div>
 
-        <form id="params">
-          <p>
-            <label for="mode-travail">Mode Travail</label>
-            <input type="checkbox" name="mode-travail" id="mode-travail" />
-          </p>
-        </form>
+        <div id="onglet-parametre" style="display: none">
+          <form>
+            <p>
+              <label for="mode-travail">Mode Travail</label>
+              <input type="checkbox" name="mode-travail" id="mode-travail" />
+            </p>
+
+            <p>
+              <label for="paramsTravail">Travail</label>
+              <input type="text" name="paramsTravail" id="paramsTravail" />
+            </p>
+
+            <p>
+              <label for="paramsPause">Pause</label>
+              <input type="text" name="paramsPause" id="paramsPause" />
+            </p>
+          </form>
+        </div>
       </div>
     </div>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="/scripts/app.js"></script>
   </body>
 </html>

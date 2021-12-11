@@ -62,3 +62,7 @@ form label {
   border: none;
   cursor: pointer;
 }
+
+#onglet-parametre > form {
+  flex-direction: column;
+}
