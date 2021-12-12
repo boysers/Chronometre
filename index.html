@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Chrono</title>
+    <script
+      src="https://kit.fontawesome.com/cf36120d58.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -35,45 +39,31 @@
             </p>
           </form>
         </div>
-
-        <div>
-          <form style="display: none">
-            <p>
-              <label for="travail">Mode Travail</label>
-              <input type="text" name="travail" id="travail" disabled />
-            </p>
-          </form>
-        </div>
       </div>
 
       <div id="buttons">
         <div>
           <form>
             <p>
-              <input type="button" id="parametre" value="⚙️" />
-              <input type="button" id="stop" value="⏹️" />
-              <input type="button" id="pause" value="⏸️" />
-              <input type="button" id="start" value="▶️" />
+              <div  id="parametre" class="btn-style">
+                <i class="fas fa-sliders-h" ></i>
+              </div>
+              <div id="stop" class="btn-style btn-active">
+                <i class="fas fa-stop"></i>
+              </div>
+              <div id="pause" class="btn-style">
+                <i class="fas fa-pause"></i>
+              </div>
+              <div id="start" class="btn-style">
+                <i class="fas fa-play"></i>
+              </div>
             </p>
           </form>
         </div>
 
         <div id="onglet-parametre" style="display: none">
           <form>
-            <p>
-              <label for="mode-travail">Mode Travail</label>
-              <input type="checkbox" name="mode-travail" id="mode-travail" />
-            </p>
-
-            <p>
-              <label for="paramsTravail">Travail</label>
-              <input type="text" name="paramsTravail" id="paramsTravail" />
-            </p>
-
-            <p>
-              <label for="paramsPause">Pause</label>
-              <input type="text" name="paramsPause" id="paramsPause" />
-            </p>
+            <p>Paramètre</p>
           </form>
         </div>
       </div>

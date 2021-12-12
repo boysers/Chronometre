@@ -17,7 +17,7 @@ function chrono() {
 
 function conversionCStoTime() {
   hour = Math.floor(cs / 36000);
-  min = Math.floor((cs / 6000) % 60);
+  min = Math.floor((cs / 600) % 60);
   sec = Math.floor((cs / 10) % 60);
 }
 
@@ -44,6 +44,7 @@ export default class Chrono {
   start() {
     if (!chronoPause) return;
 
+    chronoPause = false;
     chronoSetInterval = setInterval(chrono, 100);
   }
 

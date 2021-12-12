@@ -44,7 +44,7 @@ form label {
 #timer span {
   font-size: 2rem;
   position: relative;
-  top: 0.42em;
+  top: 0.33em;
 }
 
 #timer input[type="text"]:disabled {
@@ -65,4 +65,32 @@ form label {
 
 #onglet-parametre > form {
   flex-direction: column;
+}
+
+.btn-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  background: rgb(192, 26, 111);
+  background: linear-gradient(
+    170deg,
+    rgba(192, 26, 111, 1) 0%,
+    rgba(119, 32, 176, 1) 100%
+  );
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 0 0.35rem;
+}
+
+.btn-active {
+  background: rgb(128, 177, 14) !important;
+  background: linear-gradient(
+    170deg,
+    rgba(128, 177, 14, 1) 0%,
+    rgba(38, 134, 173, 1) 100%
+  ) !important;
 }
