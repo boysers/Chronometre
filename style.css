@@ -11,6 +11,9 @@ html {
 body {
   color: #eee3ee;
   background-color: #251f25;
+  /*   display: flex;
+  height: 100vh;
+  justify-content: center; */
 }
 
 #container,
@@ -25,6 +28,10 @@ form {
   flex-direction: column;
 }
 
+#container > h1 {
+  font-size: 3em;
+}
+
 #timer p {
   display: flex;
   flex-direction: column;
@@ -34,6 +41,7 @@ form {
 
 form label {
   margin-bottom: 0.25em;
+  font-size: 2rem;
 }
 
 #timer p,
@@ -42,18 +50,20 @@ form label {
 }
 
 #timer span {
-  font-size: 2rem;
+  font-size: 4rem;
   position: relative;
-  top: 0.33em;
+  top: 0.1em;
 }
 
 #timer input[type="text"]:disabled {
-  font-size: 2rem;
-  width: 80px;
-  height: 80px;
+  font-size: 4rem;
+  width: 160px;
+  height: 160px;
   color: #f8b8f8;
   background-color: #704f70;
   text-align: center;
+  border: 3px outset #7720b0;
+  box-shadow: inset 0px 0px 25px #332231;
 }
 
 #buttons input[type="button"] {
@@ -71,9 +81,9 @@ form label {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
-  height: 36px;
-  font-size: 24px;
+  width: 72px;
+  height: 72px;
+  font-size: 48px;
   background: rgb(192, 26, 111);
   background: linear-gradient(
     170deg,
@@ -83,7 +93,7 @@ form label {
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
-  margin: 0 0.35rem;
+  margin: 0 0.55rem;
 }
 
 .btn-active {
@@ -93,4 +103,10 @@ form label {
     rgba(128, 177, 14, 1) 0%,
     rgba(38, 134, 173, 1) 100%
   ) !important;
+}
+
+@media screen and (max-width: 550px) {
+  #container {
+    transform: scale(0.7);
+  }
 }

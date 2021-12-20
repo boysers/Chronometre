@@ -1,62 +1,52 @@
-import { heure, minute, seconde } from "./input.js";
-
-let cs = 0;
-let hour = 0;
-let min = 0;
-let sec = 0;
-
-let chronoSetInterval;
-let chronoPause = true;
-
-function chrono() {
-  cs++;
-
-  conversionCStoTime();
-  addInput();
-}
-
-function conversionCStoTime() {
-  hour = Math.floor(cs / 36000);
-  min = Math.floor((cs / 600) % 60);
-  sec = Math.floor((cs / 10) % 60);
-}
-
-function addInput() {
-  heure.value = hour < 10 ? "0" + hour : hour;
-  minute.value = min < 10 ? "0" + min : min;
-  seconde.value = sec < 10 ? "0" + sec : sec;
-}
-
 export default class Chrono {
-  reset() {
-    cs = 0;
-    hour = 0;
-    min = 0;
-    sec = 0;
+  constructor(watchTimer) {
+    this.watchTimer = watchTimer;
+
+    this.chronoSetInterval = null;
+    this.chronoPause = true;
+    this.time = {
+      cs: 0,
+      hour: 0,
+      min: 0,
+      sec: 0,
+    };
   }
 
-  resetInput() {
-    heure.value = "";
-    minute.value = "";
-    seconde.value = "";
+  reset() {
+    this.time.cs = 0;
+    this.time.hour = 0;
+    this.time.min = 0;
+    this.time.sec = 0;
+  }
+
+  conversionCStoTime() {
+    this.time.hour = Math.floor(this.time.cs / 36000);
+    this.time.min = Math.floor((this.time.cs / 600) % 60);
+    this.time.sec = Math.floor((this.time.cs / 10) % 60);
   }
 
   start() {
-    if (!chronoPause) return;
+    if (!this.chronoPause) return;
+    this.chronoPause = false;
 
-    chronoPause = false;
-    chronoSetInterval = setInterval(chrono, 100);
+    this.chronoSetInterval = setInterval(this.stopwatch.bind(this), 100);
   }
 
   stop() {
-    chronoPause = true;
-    clearTimeout(chronoSetInterval);
+    this.chronoPause = true;
+    clearTimeout(this.chronoSetInterval);
     this.reset();
-    this.resetInput();
   }
 
   pause() {
-    chronoPause = true;
-    clearTimeout(chronoSetInterval);
+    this.chronoPause = true;
+    clearTimeout(this.chronoSetInterval);
+  }
+
+  stopwatch() {
+    this.time.cs++;
+    this.conversionCStoTime();
+
+    return this.watchTimer(this.time);
   }
 }

@@ -8,6 +8,7 @@ let start = addQuerySelector("#start");
 let pause = addQuerySelector("#pause");
 let stop = addQuerySelector("#stop");
 let parametre = addQuerySelector("#parametre");
+parametre = undefined;
 
 function addQuerySelector(value) {
   let i = document.querySelector(value);
