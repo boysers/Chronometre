@@ -1,4 +1,4 @@
-import Chrono from "./Chrono.js";
+import Chrono from "./chrono.js";
 
 import { heure, minute, seconde } from "./input.js";
 import { start, pause, stop } from "./input.js";
