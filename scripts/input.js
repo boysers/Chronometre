@@ -1,19 +1,34 @@
-// Timer
-let heure = addQuerySelector("#heure");
-let minute = addQuerySelector("#minute");
-let seconde = addQuerySelector("#seconde");
+export default class Input {
+  constructor() {
+    this.buttonID;
+  }
+  /**
+   * document.querySelector(`#toto`)
+   * @param {array} array [ ]
+   * @returns {object} Object.element#toto
+   */
+  static addQuerySelector(array = []) {
+    let inputs = {};
+    for (let id of array) {
+      inputs[id] = document.querySelector(`#${id}`);
+    }
+    return inputs;
+  }
 
-// Button
-let start = addQuerySelector("#start");
-let pause = addQuerySelector("#pause");
-let stop = addQuerySelector("#stop");
-let parametre = addQuerySelector("#parametre");
-parametre = undefined;
+  static add(time, input) {
+    let i = input;
+    let t = time;
 
-function addQuerySelector(value) {
-  let i = document.querySelector(value);
+    i.heure.value = t.hour < 10 ? "0" + t.hour : t.hour;
+    i.minute.value = t.min < 10 ? "0" + t.min : t.min;
+    i.seconde.value = t.sec < 10 ? "0" + t.sec : t.sec;
+  }
 
-  return i ? i : undefined;
+  static reset(input) {
+    let i = input;
+
+    i.heure.value = "";
+    i.minute.value = "";
+    i.seconde.value = "";
+  }
 }
-
-export { heure, minute, seconde, start, pause, stop, parametre };

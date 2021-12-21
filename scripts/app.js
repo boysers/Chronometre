@@ -1,46 +1,60 @@
 import Chrono from "./chrono.js";
 
-import { heure, minute, seconde } from "./input.js";
-import { start, pause, stop } from "./input.js";
+import Input from "./input.js";
+const { addQuerySelector, add, reset } = Input;
 
-import animateOfButton from "./animateOfButton.js";
+// ---
+class NewChrono extends Chrono {
+  constructor() {
+    super();
 
-let time;
-const watchTimer = (value) => {
-  time = value;
-  inputAdd(time);
-};
+    this.button = addQuerySelector(["start", "pause", "stop"]);
 
-const chrono = new Chrono(watchTimer);
+    this.input = addQuerySelector(["heure", "minute", "seconde"]);
+    this.watchTimer = () => {
+      add(this.time, this.input);
+    };
+  }
 
-function inputAdd(time) {
-  heure.value = time.hour < 10 ? "0" + time.hour : time.hour;
-  minute.value = time.min < 10 ? "0" + time.min : time.min;
-  seconde.value = time.sec < 10 ? "0" + time.sec : time.sec;
+  animateOfButton(buttonID) {
+    if (this.chronoPause && buttonID === "pause") return;
+
+    switch (buttonID) {
+      case "start":
+        this.start();
+        break;
+      case "pause":
+        this.pause();
+        break;
+      default:
+        this.stop();
+        reset(this.input);
+    }
+
+    let button = this.button;
+    for (let i in button) {
+      if (button[i].id && buttonID != button[i].id) {
+        button[i].classList.remove("btn-active");
+      } else {
+        button[i].classList.add("btn-active");
+      }
+    }
+  }
 }
 
-function inputReset() {
-  heure.value = "";
-  minute.value = "";
-  seconde.value = "";
-}
+const newChrono = new NewChrono();
+// ---
 
-start.addEventListener("click", () => {
-  chrono.start();
+const button = addQuerySelector(["start", "pause", "stop"]);
 
-  animateOfButton("start");
+button.start.addEventListener("click", () => {
+  newChrono.animateOfButton("start");
 });
 
-pause.addEventListener("click", () => {
-  chrono.pause();
-
-  animateOfButton("pause");
+button.pause.addEventListener("click", () => {
+  newChrono.animateOfButton("pause");
 });
 
-stop.addEventListener("click", () => {
-  chrono.stop();
-
-  inputReset();
-
-  animateOfButton("stop");
+button.stop.addEventListener("click", () => {
+  newChrono.animateOfButton("stop");
 });

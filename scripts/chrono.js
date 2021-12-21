@@ -13,16 +13,20 @@ export default class Chrono {
   }
 
   reset() {
-    this.time.cs = 0;
-    this.time.hour = 0;
-    this.time.min = 0;
-    this.time.sec = 0;
+    let t = this.time;
+
+    t.cs = 0;
+    t.hour = 0;
+    t.min = 0;
+    t.sec = 0;
   }
 
   conversionCStoTime() {
-    this.time.hour = Math.floor(this.time.cs / 36000);
-    this.time.min = Math.floor((this.time.cs / 600) % 60);
-    this.time.sec = Math.floor((this.time.cs / 10) % 60);
+    let t = this.time;
+
+    t.hour = Math.floor(t.cs / 36000);
+    t.min = Math.floor((t.cs / 600) % 60);
+    t.sec = Math.floor((t.cs / 10) % 60);
   }
 
   start() {
@@ -47,6 +51,6 @@ export default class Chrono {
     this.time.cs++;
     this.conversionCStoTime();
 
-    return this.watchTimer(this.time);
+    this.watchTimer();
   }
 }
