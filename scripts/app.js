@@ -16,7 +16,7 @@ class NewChrono extends Chrono {
     };
   }
 
-  animateOfButton(buttonID) {
+  watch(buttonID) {
     if (this.chronoPause && buttonID === "pause") return;
 
     switch (buttonID) {
@@ -31,6 +31,10 @@ class NewChrono extends Chrono {
         reset(this.input);
     }
 
+    this.animateOfButton(buttonID);
+  }
+
+  animateOfButton(buttonID) {
     let button = this.button;
     for (let i in button) {
       if (button[i].id && buttonID != button[i].id) {
@@ -48,13 +52,13 @@ const newChrono = new NewChrono();
 const button = addQuerySelector(["start", "pause", "stop"]);
 
 button.start.addEventListener("click", () => {
-  newChrono.animateOfButton("start");
+  newChrono.watch("start");
 });
 
 button.pause.addEventListener("click", () => {
-  newChrono.animateOfButton("pause");
+  newChrono.watch("pause");
 });
 
 button.stop.addEventListener("click", () => {
-  newChrono.animateOfButton("stop");
+  newChrono.watch("stop");
 });
