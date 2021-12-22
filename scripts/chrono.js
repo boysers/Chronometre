@@ -13,12 +13,9 @@ export default class Chrono {
   }
 
   reset() {
-    let t = this.time;
-
-    t.cs = 0;
-    t.hour = 0;
-    t.min = 0;
-    t.sec = 0;
+    for (let i in this.time) {
+      this.time[i] = 0;
+    }
   }
 
   conversionCStoTime() {
