@@ -18,6 +18,7 @@ class NewChrono extends Chrono {
 
     this.watchTimer = () => {
       add(this.time, this.input);
+      titleOnglet(this.time);
     };
   }
 

@@ -1,3 +1,11 @@
+/**
+ * Créer une class newChrono et "extends" Chrono | 
+ * Réassigner la propriété watchTimer dans le construtor : 
+ * this.watchTimer = () => {
+      displayTimer(this.time, input);
+    };
+ * 
+ */
 export default class Chrono {
   constructor(watchTimer) {
     this.watchTimer = watchTimer;
@@ -28,6 +36,10 @@ export default class Chrono {
     this.cs = 0;
   }
 
+  /**
+   * Calcul le départ du chrono moins le temps apres la pause
+   * S'il n'y a pas eu de pause avant, this.cs = 0
+   */
   addFirstDate() {
     this.firstDate = Math.floor(
       this.conversionMStoCS(new Date().valueOf()) - this.cs
@@ -51,6 +63,9 @@ export default class Chrono {
     t.cs = Math.floor((this.cs * 10) % 100);
   }
 
+  /**
+   * Calcul la date en Direct moins le temps de départ de la date
+   */
   addCS() {
     this.cs = Math.floor(this.latestDate - this.firstDate);
   }
@@ -76,15 +91,17 @@ export default class Chrono {
     clearTimeout(this.chronoSetInterval);
   }
 
+  /**
+   * setInterval, 100 ms |
+   * Fonction à ajouter pour configurer l'afficheur : watchTimer();
+   */
   stopwatch() {
-    // this.time.cs++;
     this.conversionCStoTime();
-
-    this.watchTimer();
-
     this.addLatestDate();
     this.addCS();
 
-    // console.log(this.cs);
+    // ---
+    this.watchTimer();
+    // ---
   }
 }
