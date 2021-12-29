@@ -1,7 +1,12 @@
 import Chrono from "./chrono.js";
 
-import Input from "./input.js";
-const { addQuerySelector, add, reset, animateOfButton, titleOnglet } = Input;
+import {
+  addQuerySelector,
+  add,
+  reset,
+  animateOfButton,
+  titleOnglet,
+} from "./input.js";
 
 // ---
 class NewChrono extends Chrono {
