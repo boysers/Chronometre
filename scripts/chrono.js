@@ -10,24 +10,56 @@ export default class Chrono {
       min: 0,
       sec: 0,
     };
+
+    this.firstDate = 0;
+    this.latestDate = 0;
+
+    this.cs = 0;
   }
 
   reset() {
     for (let i in this.time) {
       this.time[i] = 0;
     }
+
+    this.firstDate = 0;
+    this.latestDate = 0;
+
+    this.cs = 0;
+  }
+
+  addFirstDate() {
+    this.firstDate = Math.floor(
+      this.conversionMStoCS(new Date().valueOf()) - this.cs
+    );
+  }
+
+  addLatestDate() {
+    this.latestDate = this.conversionMStoCS(new Date().valueOf());
+  }
+
+  conversionMStoCS(ms) {
+    return Math.floor(ms / 100);
   }
 
   conversionCStoTime() {
     let t = this.time;
 
-    t.hour = Math.floor(t.cs / 36000);
-    t.min = Math.floor((t.cs / 600) % 60);
-    t.sec = Math.floor((t.cs / 10) % 60);
+    t.hour = Math.floor(this.cs / 36000);
+    t.min = Math.floor((this.cs / 600) % 60);
+    t.sec = Math.floor((this.cs / 10) % 60);
+    t.cs = Math.floor((this.cs * 10) % 100);
+  }
+
+  addCS() {
+    this.cs = Math.floor(this.latestDate - this.firstDate);
   }
 
   start() {
     if (!this.chronoPause) return;
+
+    this.addFirstDate();
+
     this.chronoPause = false;
 
     this.chronoSetInterval = setInterval(this.stopwatch.bind(this), 100);
@@ -45,9 +77,14 @@ export default class Chrono {
   }
 
   stopwatch() {
-    this.time.cs++;
+    // this.time.cs++;
     this.conversionCStoTime();
 
     this.watchTimer();
+
+    this.addLatestDate();
+    this.addCS();
+
+    // console.log(this.cs);
   }
 }

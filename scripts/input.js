@@ -63,4 +63,15 @@ export default class Input {
       }
     }
   }
+
+  static titleOnglet(time) {
+    let t = time;
+
+    let hours = t.hour < 10 ? "0" + t.hour : t.hour;
+    let minutes = t.min < 10 ? "0" + t.min : t.min;
+    let seconds = t.sec < 10 ? "0" + t.sec : t.sec;
+    let cs = t.cs < 10 ? "0" + t.cs : t.cs;
+
+    document.title = `${hours}h${minutes}:${seconds}.${cs}`;
+  }
 }

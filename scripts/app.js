@@ -1,7 +1,7 @@
 import Chrono from "./chrono.js";
 
 import Input from "./input.js";
-const { addQuerySelector, add, reset, animateOfButton } = Input;
+const { addQuerySelector, add, reset, animateOfButton, titleOnglet } = Input;
 
 // ---
 class NewChrono extends Chrono {
@@ -13,6 +13,7 @@ class NewChrono extends Chrono {
 
     this.watchTimer = () => {
       add(this.time, this.input);
+      titleOnglet(this.time);
     };
   }
 
